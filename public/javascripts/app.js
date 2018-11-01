@@ -47,6 +47,7 @@ function battleCtrl($scope, catFetcher, $http) {
     cat.numWins ++;
     
     shuffleArray($scope.cat);
+    addCatData();
   };
   
   $scope.rightButtonClicked = function() {
@@ -54,6 +55,7 @@ function battleCtrl($scope, catFetcher, $http) {
     cat.numWins ++;
     
     shuffleArray($scope.cat);
+    addCatData();
   };
 
   var shuffleArray = function(array) {
@@ -69,7 +71,7 @@ function battleCtrl($scope, catFetcher, $http) {
     return array;
   };
 
-  $scope.addCatData = function() {
+  function addCatData() {
     var formData = $scope.cat;
     console.log(formData);
     var catURL = 'cat';
