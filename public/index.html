@@ -12,7 +12,7 @@
 <body ng-app='app'>
 
   <div id='app' ng-controller='battleCtrl'>
-    <h2> Cat Battle</h2>
+    <h2 class='center'> Cat Battle</h2>
 
     <ul ng-if='cat.length' class='list center stretch'>
       <li ng-repeat="c in cat | orderBy:'-numWins'" class='cat'>
@@ -22,8 +22,10 @@
       </li>
     </ul>
 
-
-    <button ng-click="doShuffle()">Do Shuffle</button>
+<div class="buttonHolder">
+    <button  ng-click="doShuffle()">Shuffle</button>
+    <button  ng-click="doShuffle()">Shuffle</button>
+    </div>
     <ul ng-if='cat.length' class='list center stretch'>
       <li ng-repeat="c in cat | limitTo:2" class='cat'>
         <h1>{{ c.name }}</h1>
