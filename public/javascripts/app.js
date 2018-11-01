@@ -21,45 +21,59 @@ function catFetcher($http) {
 
 function mainCtrl($scope, catFetcher, $http) {
 
-  $scope.cat = []
+  $scope.cat = [];
 
   catFetcher.get()
     .then(function(data) {
-      $scope.cat = data
-    })
-
-
+      $scope.cat = data;
+    });
 }
 
 function battleCtrl($scope, catFetcher, $http) {
-    $scope.cat = []
+  $scope.cat = [];
 
   catFetcher.get()
     .then(function(data) {
-      $scope.cat = data
-    })
+      $scope.cat = data;
+    });
 
   $scope.doShuffle = function() {
     shuffleArray($scope.cat);
-  }
+  };
+
+
+  $scope.leftButtonClicked = function() {
+    var  cat = $scope.cat[0];
+    cat.numWins ++;
+    
+    shuffleArray($scope.cat);
+  };
+  
+  $scope.rightButtonClicked = function() {
+    var  cat = $scope.cat[1];
+    cat.numWins ++;
+    
+    shuffleArray($scope.cat);
+  };
 
   var shuffleArray = function(array) {
-    var m = array.length,
-      t, i;
+    var m = array.length;
+
     while (m) {
-      i = Math.floor(Math.random() * m--);
-      t = array[m];
+      var i = Math.floor(Math.random() * m--);
+      var cat = array[m];
       array[m] = array[i];
-      array[i] = t;
+      array[i] = cat;
     }
 
     return array;
-  }
-  
-    $scope.addCatData = function() {
+  };
+
+  $scope.addCatData = function() {
     var formData = $scope.cat;
     console.log(formData);
     var catURL = 'cat';
+
     $http({
       url: catURL,
       method: "POST",

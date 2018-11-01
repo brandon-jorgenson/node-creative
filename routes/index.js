@@ -6,29 +6,16 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-var cats = [
-  {
-    name: 'Cat0',
-    catUrl: 'gifs/cat0.gif',
-    numWins: 1
-  },
-  {
-    name: 'Cat1',
-    catUrl: 'gifs/cat1.gif',
-    numWins: 2
 
-  },
-  {
-    name: 'Cat2',
-    catUrl: 'gifs/cat2.gif',
-    numWins: 3
-  },
-  {
-    name: 'Cat3',
-    catUrl: 'gifs/cat3.gif',
-    numWins: 4
-  }
-];
+var cats = [];
+for (var i = 0; i < 10; i++) {
+  cats.push({
+    name: 'Cat' + i,
+    catUrl: 'gifs/cat' + i + '.gif',
+    numWins: 0
+  });
+}
+
 
 router.get('/cat', function(req, res) {
   console.log("In Cat");

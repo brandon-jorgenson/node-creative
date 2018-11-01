@@ -10,26 +10,33 @@
 </head>
 
 <body ng-app='app'>
-
+  <!--All cats listed in order-->
   <div id='app' ng-controller='battleCtrl'>
-    <h2 class='center'> Cat Battle</h2>
+    <!--Header-->
+    <h1 class="center">CAT BATTLE</h1>
+    <h3 class="center">-- pick your favorite cat gif --</h3>
 
-    <ul ng-if='cat.length' class='list center stretch'>
-      <li ng-repeat="c in cat | orderBy:'-numWins'" class='cat'>
-        <h1>{{ c.name }}</h1>
-        <img class='avatar' ng-src="{{c.catUrl}}" />
-        <h2>Wins: {{c.numWins}}</h2>
-      </li>
-    </ul>
-
-<div class="buttonHolder">
-    <button  ng-click="doShuffle()">Shuffle</button>
-    <button  ng-click="doShuffle()">Shuffle</button>
-    </div>
+    <!--Two cats battling-->
     <ul ng-if='cat.length' class='list center stretch'>
       <li ng-repeat="c in cat | limitTo:2" class='cat'>
-        <h1>{{ c.name }}</h1>
+        <h2><!--{{ c.name }}--></h2>
+        <img class='big_avatar' ng-src="{{c.catUrl}}" />
+      </li>
+    </ul>
+    
+    <!--Buttons to choose-->
+    <div class="buttonHolder">
+      <button ng-click="leftButtonClicked()">Left</button>
+      <button ng-click="rightButtonClicked()">Right</button>
+    </div>
+
+    <br><br><br>
+    
+    <ul ng-if='cat.length' class='list center stretch'>
+      <li ng-repeat="c in cat | orderBy:'-numWins'" class='cat'>
+        <!--<h2>{{ c.name }}</h2>-->
         <img class='avatar' ng-src="{{c.catUrl}}" />
+        <h2>Wins: {{c.numWins}}</h2>
       </li>
     </ul>
   </div>

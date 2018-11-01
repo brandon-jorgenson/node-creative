@@ -19,16 +19,15 @@ div, ul {
 }
 .buttonHolder{
     text-align: center;
-    
 }
 button {
-
 margin-left:30px;
 margin-right:30px;
   
 }
 
 .center {
+  color: white;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -36,12 +35,33 @@ margin-right:30px;
 }
 
 .h1 {
+  color: white;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.h2 {
   margin: 0;
   color: white;
 }
 
+.h3 {
+  color: white;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 .cat {
   padding: 20px;
+}
+
+.big_avatar {
+  width: 300px;
+  height: 300px;
 }
 
 .avatar {
