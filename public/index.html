@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+  <script src="javascripts/app.js"></script>
+  <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+  <meta charset="utf-8">
+  <title>Cat Battle</title>
+</head>
+
+<body ng-app='app'>
+
+  <div id='app' ng-controller='battleCtrl'>
+    <h2> Cat Battle</h2>
+
+    <ul ng-if='cat.length' class='list center stretch'>
+      <li ng-repeat="c in cat | orderBy:'-numWins'" class='cat'>
+        <h1>{{ c.name }}</h1>
+        <img class='avatar' ng-src="{{c.catUrl}}" />
+        <h2>Wins: {{c.numWins}}</h2>
+      </li>
+    </ul>
+
+
+    <button ng-click="doShuffle()">Do Shuffle</button>
+    <ul ng-if='cat.length' class='list center stretch'>
+      <li ng-repeat="c in cat | limitTo:2" class='cat'>
+        <h1>{{ c.name }}</h1>
+        <img class='avatar' ng-src="{{c.catUrl}}" />
+      </li>
+    </ul>
+  </div>
+
+</body>
+
+</html>
